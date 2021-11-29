@@ -90,17 +90,11 @@
             "metadata": {
                 "description": "Size of the virtual machine. Reference: https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-general"
             }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Location for all resources."
-            }
         }
     },
     "variables": {
-        "artifactsBlacksmith": "https://raw.githubusercontent.com/OTRF/Blacksmith/master/"
+        "artifactsBlacksmith": "https://raw.githubusercontent.com/OTRF/Blacksmith/master/",
+        "location": "[resourceGroup().location]"
     },
     "resources": [
         {
@@ -148,7 +142,7 @@
                         "value": "[if(empty(parameters('workspaceKey')), reference('deployMSSentinel2Go').outputs.workspaceKeyOutput.value, parameters('workspaceKey'))]"
                     },
                     "location": {
-                        "value": "[parameters('location')]"
+                        "value": "[variables('location')]"
                     }
                 }
             }
