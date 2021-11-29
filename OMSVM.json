@@ -136,10 +136,10 @@
                         "value": "[parameters('azureBastionSubnetRange')]"
                     },
                     "workspaceId": {
-                        "value": "[if(empty(parameters('workspaceId')), reference('deployMSSentinel2Go').outputs.workspaceIdOutput.value, parameters('workspaceId'))]"
+                        "value": "parameters('workspaceId')"
                     },
                     "workspaceKey": {
-                        "value": "[if(empty(parameters('workspaceKey')), reference('deployMSSentinel2Go').outputs.workspaceKeyOutput.value, parameters('workspaceKey'))]"
+                        "value": "parameters('workspaceKey')"
                     },
                     "location": {
                         "value": "[variables('location')]"
